@@ -1,0 +1,24 @@
+
+from dash import Dash, dcc, html, Input, Output, callback, dash_table
+from data import bill_data
+
+@callback(Output("bill-sponsor", "children"), Input("bill-dropdown", "value"))
+def show_sponsor(value):
+    bill_filtered_data = bill_data[bill_data["title"] == value]
+    primary_sponsor = ""
+    if not bill_filtered_data.empty:
+        primary_sponsors = bill_filtered_data["primary sponsor"]
+        if not primary_sponsors.isnull().all():
+            primary_sponsor = primary_sponsors.dropna().iloc[0]
+    return f"Primary sponsor: {primary_sponsor}"
+
+
+@callback(Output("legislator-votes", "children"), Input("legislator-dropdown", "value"))
+def show_sponsor(value):
+    legislator_filtered_data = bill_data[bill_data["legislator"] == value]
+    legislator_name = ""
+    if not legislator_filtered_data.empty:
+        legislator_names = legislator_filtered_data["legislator"]
+        if not legislator_names.isnull().all():
+            legislator_name = legislator_names.dropna().iloc[0]
+    return f"Legislator: {legislator_name}"
