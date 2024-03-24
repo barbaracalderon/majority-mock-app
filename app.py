@@ -42,3 +42,28 @@ def merge_data():
     print(final_table)
     return final_table
 
+def clean_data(data):
+    bill_data = data.drop(
+        columns=[
+            "id",
+            "legislator_id",
+            "vote_id",
+            "id_legislator",
+            "bill_id",
+            "sponsor_id",
+        ]
+    ).rename(
+        columns={
+            "name_x": "legislator",
+            "name_y": "primary sponsor",
+            "vote_type": "position",
+        }
+    )
+
+    bill_data["position"] = bill_data["position"].replace({1: "Yea", 2: "Nay"})
+    print(bill_data)
+    return bill_data
+
+
+data = merge_data()
+bill_data = clean_data(data)
