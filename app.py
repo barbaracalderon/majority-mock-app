@@ -146,6 +146,90 @@ def render_content(tab):
             ]
         )
     elif tab == "tab-bills":
-        return ""
+        return html.Div(
+            children=[
+                html.H4("Bills"),
+                html.P(
+                    "Please, select which bill would you like to see more information on."
+                ),
+                dcc.Dropdown(
+                    id="bill-dropdown",
+                    options=[
+                        {"label": title, "value": title}
+                        for title in data["title"].unique()
+                    ],
+                    searchable=False,
+                    clearable=False,
+                    placeholder="Select the bill",
+                ),
+                html.Br(),
+                html.P(id="bill-sponsor"),
+                html.Br(),
+                html.Div(
+                    children=[
+                        dmc.Container(
+                            dmc.Grid(
+                                children=[
+                                    dmc.Col(
+                                        [
+                                            dash_table.DataTable(
+                                                id="bill-table",
+                                                data=[],
+                                                page_size=12,
+                                                style_table={"overflowX": "auto"},
+                                            )
+                                        ],
+                                        span=5,
+                                    ),
+                                    dmc.Col([dcc.Graph(id="bill-graph")], span=6),
+                                ]
+                            )
+                        ),
+                    ]
+                ),
+            ]
+        )
     elif tab == "tab-legislators":
-        return ""
+        return html.Div(
+            children=[
+                html.H4("Legislators"),
+                html.P(
+                    "Please, select the legislator whose votes you would like to see more information on."
+                ),
+                dcc.Dropdown(
+                    id="legislator-dropdown",
+                    options=[
+                        {"label": legislator, "value": legislator}
+                        for legislator in bill_data["legislator"].unique()
+                    ],
+                    searchable=False,
+                    clearable=False,
+                    placeholder="Select the Legislator",
+                ),
+                html.Br(),
+                html.P(id="legislator-votes"),
+                html.Br(),
+                html.Div(
+                    children=[
+                        dmc.Container(
+                            dmc.Grid(
+                                children=[
+                                    dmc.Col(
+                                        [
+                                            dash_table.DataTable(
+                                                id="legislator-table",
+                                                data=[],
+                                                page_size=14,
+                                                style_table={"overflowX": "auto"},
+                                            )
+                                        ],
+                                        span=6,
+                                    ),
+                                    dmc.Col([dcc.Graph(id="legislator-graph")], span=5),
+                                ]
+                            )
+                        ),
+                    ]
+                ),
+            ]
+        )
