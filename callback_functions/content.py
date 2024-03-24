@@ -1,13 +1,13 @@
-from dash import Dash, dcc, html, Input, Output, callback, dash_table
+from dash import dcc, html, Input, Output, callback, dash_table
 import dash_mantine_components as dmc
-from data import data, bill_data 
+from data import data, bill_data
 
 
 @callback(
     Output("tabs-navbar-content", "children"),
     Input("tabs-navbar", "value"),
 )
-def render_content(tab):
+def render_content(tab: str) -> html.Div:
     if tab == "tab-about":
         return html.Div(
             children=[
@@ -130,4 +130,3 @@ def render_content(tab):
                 ),
             ]
         )
-

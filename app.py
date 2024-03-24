@@ -1,13 +1,13 @@
 from dash import Dash, dcc, html
 from callback_functions import render_content, show_sponsor, update_table, update_graph
 
-
-external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
-app = Dash(
+external_stylesheets: list[str] = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+app: Dash = Dash(
     __name__,
     external_stylesheets=external_stylesheets,
     suppress_callback_exceptions=True,
 )
+
 app.layout = html.Div(
     style={"margin": "auto", "fontFamily": "Arial, sans-serif", "width": "50%"},
     children=[

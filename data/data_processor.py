@@ -1,12 +1,14 @@
 import pandas as pd
+from pandas.core.frame import DataFrame
 
-def merge_data():
-    bills_df = pd.read_csv("data/bills.csv")
-    legislators_df = pd.read_csv("data/legislators.csv")
-    votes_df = pd.read_csv("data/votes.csv")
-    vote_results_df = pd.read_csv("data/vote_results.csv")
 
-    vote_results_merged = pd.merge(
+def merge_data() -> DataFrame:
+    bills_df: DataFrame = pd.read_csv("data/bills.csv")
+    legislators_df: DataFrame = pd.read_csv("data/legislators.csv")
+    votes_df: DataFrame = pd.read_csv("data/votes.csv")
+    vote_results_df: DataFrame = pd.read_csv("data/vote_results.csv")
+
+    vote_results_merged: DataFrame = pd.merge(
         vote_results_df,
         legislators_df,
         left_on="legislator_id",
@@ -14,7 +16,7 @@ def merge_data():
         suffixes=("_vote", "_legislator"),
     )
 
-    vote_results_merged = pd.merge(
+    vote_results_merged: DataFrame = pd.merge(
         vote_results_merged,
         votes_df,
         left_on="vote_id",
@@ -22,7 +24,7 @@ def merge_data():
         suffixes=("_vote_results", "_votes"),
     )
 
-    vote_results = pd.merge(
+    vote_results: DataFrame = pd.merge(
         vote_results_merged,
         bills_df,
         left_on="bill_id",
@@ -30,7 +32,7 @@ def merge_data():
         suffixes=("_votes", "_bills"),
     )
 
-    final_table = pd.merge(
+    final_table: DataFrame = pd.merge(
         vote_results,
         legislators_df[["id", "name"]],
         left_on="sponsor_id",
@@ -42,8 +44,8 @@ def merge_data():
     return final_table
 
 
-def create_bill_data(data):
-    bill_data = data.drop(
+def create_bill_data(data: DataFrame) -> DataFrame:
+    bill_data: DataFrame = data.drop(
         columns=[
             "id",
             "legislator_id",
