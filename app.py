@@ -1,4 +1,5 @@
 import pandas as pd
+from dash import Dash, dcc, html
 
 def merge_data():
     bills_df = pd.read_csv("data/bills.csv")
@@ -67,3 +68,36 @@ def clean_data(data):
 
 data = merge_data()
 bill_data = clean_data(data)
+
+external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+
+app = Dash(
+    __name__,
+    external_stylesheets=external_stylesheets,
+    suppress_callback_exceptions=True,
+)
+
+app.layout = html.Div(
+    style={"margin": "auto", "fontFamily": "Arial, sans-serif", "width": "50%"},
+    children=[
+        html.Div(
+            children=[
+                html.H1(children="Majority"),
+                html.H5(
+                    children="We provide insights into the voting behaviour of US legislators on various bills."
+                ),
+            ]
+        ),
+        html.Br(),
+        dcc.Tabs(
+            id="tabs-navbar",
+            value="tab-about",
+            children=[
+                dcc.Tab(label="About us", value="tab-about"),
+                dcc.Tab(label="Bills", value="tab-bills"),
+                dcc.Tab(label="Legislators", value="tab-legislators"),
+            ],
+        ),
+        html.Div(id="tabs-navbar-content"),
+    ],
+)
