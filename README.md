@@ -56,6 +56,13 @@ Make sure you have Python and Pip installed.
 
 5. Access the application in your web browser at [http://127.0.0.1:8050/](http://127.0.0.1:8050/).
 
+## Directory Structure
+- `src/`: Contains the main application code.
+- `src/data/`: Contains CSV files used for data processing.
+- `src/callback_functions.py`: Module containing callback functions for Dash application.
+- `requirements.txt`: List of Python dependencies required for the project.
+- `README.md`: Instructions and information about the project.
+
 ## Technologies Used
 
 - Python
