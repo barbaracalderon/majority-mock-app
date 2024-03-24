@@ -2,6 +2,8 @@
 
 Majority App is a web application built using Dash, a Python framework for building analytical web applications. This application provides insights into the voting behavior of US legislators on various bills, offering valuable information for public affairs professionals and political analysts.
 
+_PS: This is a mock app for educational purposes._
+
 ![Majority App landing page](page.png)
 
 ## Author
