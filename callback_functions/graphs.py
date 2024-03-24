@@ -4,8 +4,7 @@ from typing import Any, Dict, List, Union
 import pandas as pd
 
 
-@callback(Output("bill-graph", "figure"), Input("bill-dropdown", "value"))
-def update_graph(
+def update_bill_graph(
     value: str,
 ) -> Dict[
     str, Union[List[Dict[str, Union[str, List[int]]]], Dict[str, Dict[str, str]]]
@@ -30,8 +29,7 @@ def update_graph(
     return fig
 
 
-@callback(Output("legislator-graph", "figure"), Input("legislator-dropdown", "value"))
-def update_graph(
+def update_legislator_graph(
     value: str,
 ) -> Dict[
     str, Union[List[Dict[str, Union[str, List[int]]]], Dict[str, Dict[str, str]]]

@@ -3,8 +3,7 @@ from data import bill_data
 from typing import Any
 
 
-@callback(Output("bill-sponsor", "children"), Input("bill-dropdown", "value"))
-def show_sponsor(value: Any) -> str:
+def show_bill_sponsor(value: Any) -> str:
     bill_filtered_data = bill_data[bill_data["title"] == value]
     primary_sponsor = ""
     if not bill_filtered_data.empty:
@@ -14,8 +13,7 @@ def show_sponsor(value: Any) -> str:
     return f"Primary sponsor: {primary_sponsor}"
 
 
-@callback(Output("legislator-votes", "children"), Input("legislator-dropdown", "value"))
-def show_sponsor(value: Any) -> str:
+def show_legislator_sponsor(value: Any) -> str:
     legislator_filtered_data = bill_data[bill_data["legislator"] == value]
     legislator_name = ""
     if not legislator_filtered_data.empty:
