@@ -240,3 +240,23 @@ def update_table(value):
     bill_filtered_data = bill_data[bill_data["title"] == value]
     bill_filtered_data = bill_filtered_data.drop(columns=["title", "primary sponsor"])
     return bill_filtered_data.to_dict("records")
+
+@callback(Output("bill-graph", "figure"), Input("bill-dropdown", "value"))
+def update_graph(value):
+    bill_filtered_data = bill_data[bill_data["title"] == value]
+    x_values = bill_filtered_data["position"].unique()
+    y_values = [
+        bill_filtered_data[bill_filtered_data["position"] == x_val].shape[0]
+        for x_val in x_values
+    ]
+
+    fig = {
+        "data": [{"type": "bar", "x": x_values, "y": y_values, "name": "Count"}],
+        "layout": {
+            "title": "Number of votes for the selected bill",
+            "xaxis": {"title": "Position taken"},
+            "yaxis": {"title": "Number of votes"},
+        },
+    }
+
+    return fig
