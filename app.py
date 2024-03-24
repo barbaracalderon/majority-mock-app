@@ -269,3 +269,14 @@ def update_graph(value):
     }
 
     return fig
+
+
+@callback(Output("legislator-votes", "children"), Input("legislator-dropdown", "value"))
+def show_sponsor(value):
+    legislator_filtered_data = bill_data[bill_data["legislator"] == value]
+    legislator_name = ""
+    if not legislator_filtered_data.empty:
+        legislator_names = legislator_filtered_data["legislator"]
+        if not legislator_names.isnull().all():
+            legislator_name = legislator_names.dropna().iloc[0]
+    return f"Legislator: {legislator_name}"
