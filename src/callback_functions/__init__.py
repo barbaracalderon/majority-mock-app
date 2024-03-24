@@ -1,4 +1,4 @@
 from callback_functions.content import render_content
-from callback_functions.sponsors import show_bill_sponsor, show_legislator_sponsor
+from callback_functions.sponsors import show_legislator_sponsor, show_bill_sponsor
 from callback_functions.tables import update_bill_table, update_legislator_table
 from callback_functions.graphs import update_bill_graph, update_legislator_graph

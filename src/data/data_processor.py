@@ -3,10 +3,10 @@ from pandas.core.frame import DataFrame
 
 
 def merge_data() -> DataFrame:
-    bills_df: DataFrame = pd.read_csv("data/bills.csv")
-    legislators_df: DataFrame = pd.read_csv("data/legislators.csv")
-    votes_df: DataFrame = pd.read_csv("data/votes.csv")
-    vote_results_df: DataFrame = pd.read_csv("data/vote_results.csv")
+    bills_df: DataFrame = pd.read_csv("src/data/bills.csv")
+    legislators_df: DataFrame = pd.read_csv("src/data/legislators.csv")
+    votes_df: DataFrame = pd.read_csv("src/data/votes.csv")
+    vote_results_df: DataFrame = pd.read_csv("src/data/vote_results.csv")
 
     vote_results_merged: DataFrame = pd.merge(
         vote_results_df,
