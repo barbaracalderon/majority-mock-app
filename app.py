@@ -280,3 +280,11 @@ def show_sponsor(value):
         if not legislator_names.isnull().all():
             legislator_name = legislator_names.dropna().iloc[0]
     return f"Legislator: {legislator_name}"
+
+@callback(Output("legislator-table", "data"), Input("legislator-dropdown", "value"))
+def update_table(value):
+    legislator_filtered_data = bill_data[bill_data["legislator"] == value]
+    legislator_filtered_data = legislator_filtered_data.drop(
+        columns=["legislator", "primary sponsor"]
+    )
+    return legislator_filtered_data.to_dict("records")
