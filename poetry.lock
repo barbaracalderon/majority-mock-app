@@ -146,6 +146,23 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "gunicorn"
+version = "21.2.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "idna"
 version = "3.6"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -461,7 +478,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "40a803bdaaac4d7d65e877ad256f55fc60f41bce082f5eff66667c65f1b513c9"
+content-hash = "b4ccde503d9d66f341774a462d2114e72f3c03f5507b21e31f933301a69edd26"
 
 [metadata.files]
 atomicwrites = []
@@ -477,6 +494,7 @@ dash-html-components = []
 dash-mantine-components = []
 dash-table = []
 flask = []
+gunicorn = []
 idna = []
 importlib-metadata = []
 itsdangerous = []
