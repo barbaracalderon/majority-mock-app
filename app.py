@@ -233,3 +233,10 @@ def render_content(tab):
                 ),
             ]
         )
+
+
+@callback(Output("bill-table", "data"), Input("bill-dropdown", "value"))
+def update_table(value):
+    bill_filtered_data = bill_data[bill_data["title"] == value]
+    bill_filtered_data = bill_filtered_data.drop(columns=["title", "primary sponsor"])
+    return bill_filtered_data.to_dict("records")
