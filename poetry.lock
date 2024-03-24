@@ -2,7 +2,7 @@
 name = "atomicwrites"
 version = "1.4.1"
 description = "Atomic file writes."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -10,7 +10,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "attrs"
 version = "23.2.0"
 description = "Classes Without Boilerplate"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -37,6 +37,14 @@ description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "cfgv"
+version = "3.4.0"
+description = "Validate configuration and produce human readable error messages."
+category = "main"
+optional = false
+python-versions = ">=3.8"
 
 [[package]]
 name = "charset-normalizer"
@@ -95,6 +103,20 @@ diskcache = ["diskcache (>=5.2.1)", "multiprocess (>=0.70.12)", "psutil (>=5.8.0
 testing = ["beautifulsoup4 (>=4.8.2)", "lxml (>=4.6.2)", "percy (>=2.0.2)", "pytest (>=6.0.2)", "requests[security] (>=2.21.0)", "selenium (>=3.141.0,<=4.2.0)", "waitress (>=1.4.4)", "multiprocess (>=0.70.12)", "psutil (>=5.8.0)", "dash-testing-stub (>=0.0.2)", "cryptography (<3.4)"]
 
 [[package]]
+name = "dash-bootstrap-components"
+version = "1.5.0"
+description = "Bootstrap themed components for use in Plotly Dash"
+category = "main"
+optional = false
+python-versions = ">=3.7, <4"
+
+[package.dependencies]
+dash = ">=2.0.0"
+
+[package.extras]
+pandas = ["numpy", "pandas"]
+
+[[package]]
 name = "dash-core-components"
 version = "2.0.0"
 description = "Core component suite for Dash"
@@ -111,8 +133,16 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "dash-iconify"
+version = "0.1.2"
+description = "Iconify for Plotly Dash"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "dash-mantine-components"
-version = "0.12.1"
+version = "0.12.0"
 description = "Plotly Dash Components based on Mantine"
 category = "main"
 optional = false
@@ -125,6 +155,60 @@ description = "Dash table"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "dash-tools"
+version = "1.12.0"
+description = "Plotly Dash Templating and Deployment Tools"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+dash = ">=2.5.1"
+dash-bootstrap-components = "*"
+dash-iconify = "0.1.2"
+dash-mantine-components = "0.12.0"
+Flask = "*"
+gunicorn = "*"
+packaging = "21.3"
+pandas = "*"
+pipreqs = "0.4.12"
+pre-commit = "2.16.0"
+pytest = "6.2.5"
+"ruamel.yaml" = "0.17.21"
+termcolor = "1.1.0"
+visdcc = "0.0.50"
+yolk3k = "0.9"
+
+[[package]]
+name = "distlib"
+version = "0.3.8"
+description = "Distribution utilities"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "docopt"
+version = "0.6.2"
+description = "Pythonic argument parser, that will make you smile"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "filelock"
+version = "3.13.1"
+description = "A platform independent file lock."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+docs = ["furo (>=2023.9.10)", "sphinx-autodoc-typehints (>=1.24)", "sphinx (>=7.2.6)"]
+testing = ["covdefaults (>=2.3)", "coverage (>=7.3.2)", "diff-cover (>=8)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)", "pytest-timeout (>=2.2)", "pytest (>=7.4.3)"]
+typing = ["typing-extensions (>=4.8)"]
 
 [[package]]
 name = "flask"
@@ -163,6 +247,17 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+name = "identify"
+version = "2.5.35"
+description = "File identification library for Python"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+license = ["ukkonen"]
+
+[[package]]
 name = "idna"
 version = "3.6"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -185,6 +280,14 @@ zipp = ">=0.5"
 docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9.3)", "rst.linker (>=1.9)", "furo", "sphinx-lint", "jaraco.tidelift (>=1.4)"]
 perf = ["ipython"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-ruff (>=0.2.1)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "jaraco.test (>=5.4)", "pytest-mypy", "importlib-resources (>=1.3)"]
+
+[[package]]
+name = "iniconfig"
+version = "2.0.0"
+description = "brain-dead simple config-ini parsing"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "itsdangerous"
@@ -217,20 +320,20 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "more-itertools"
-version = "10.2.0"
-description = "More routines for operating on iterables, beyond itertools"
-category = "dev"
-optional = false
-python-versions = ">=3.8"
-
-[[package]]
 name = "nest-asyncio"
 version = "1.6.0"
 description = "Patch asyncio to allow nested event loops"
 category = "main"
 optional = false
 python-versions = ">=3.5"
+
+[[package]]
+name = "nodeenv"
+version = "1.8.0"
+description = "Node.js virtual environment builder"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*"
 
 [[package]]
 name = "numpy"
@@ -242,11 +345,14 @@ python-versions = ">=3.9"
 
 [[package]]
 name = "packaging"
-version = "24.0"
+version = "21.3"
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "pandas"
@@ -292,6 +398,30 @@ consortium-standard = ["dataframe-api-compat (>=0.1.7)"]
 all = ["adbc-driver-postgresql (>=0.8.0)", "adbc-driver-sqlite (>=0.8.0)", "beautifulsoup4 (>=4.11.2)", "bottleneck (>=1.3.6)", "dataframe-api-compat (>=0.1.7)", "fastparquet (>=2022.12.0)", "fsspec (>=2022.11.0)", "gcsfs (>=2022.11.0)", "html5lib (>=1.1)", "hypothesis (>=6.46.1)", "jinja2 (>=3.1.2)", "lxml (>=4.9.2)", "matplotlib (>=3.6.3)", "numba (>=0.56.4)", "numexpr (>=2.8.4)", "odfpy (>=1.4.1)", "openpyxl (>=3.1.0)", "pandas-gbq (>=0.19.0)", "psycopg2 (>=2.9.6)", "pyarrow (>=10.0.1)", "pymysql (>=1.0.2)", "PyQt5 (>=5.15.9)", "pyreadstat (>=1.2.0)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)", "python-calamine (>=0.1.7)", "pyxlsb (>=1.0.10)", "qtpy (>=2.3.0)", "scipy (>=1.10.0)", "s3fs (>=2022.11.0)", "SQLAlchemy (>=2.0.0)", "tables (>=3.8.0)", "tabulate (>=0.9.0)", "xarray (>=2022.12.0)", "xlrd (>=2.0.1)", "xlsxwriter (>=3.0.5)", "zstandard (>=0.19.0)"]
 
 [[package]]
+name = "pipreqs"
+version = "0.4.12"
+description = "Pip requirements.txt generator based on imports in project"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+docopt = "*"
+yarg = "*"
+
+[[package]]
+name = "platformdirs"
+version = "4.2.0"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+docs = ["furo (>=2023.9.10)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.25.2)", "sphinx (>=7.2.6)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)", "pytest (>=7.4.3)"]
+
+[[package]]
 name = "plotly"
 version = "5.20.0"
 description = "An open-source, interactive data visualization library for Python"
@@ -307,7 +437,7 @@ tenacity = ">=6.2.0"
 name = "pluggy"
 version = "0.13.1"
 description = "plugin and hook calling mechanisms for python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -315,33 +445,59 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 dev = ["pre-commit", "tox"]
 
 [[package]]
+name = "pre-commit"
+version = "2.16.0"
+description = "A framework for managing and maintaining multi-language pre-commit hooks."
+category = "main"
+optional = false
+python-versions = ">=3.6.1"
+
+[package.dependencies]
+cfgv = ">=2.0.0"
+identify = ">=1.0.0"
+nodeenv = ">=0.11.1"
+pyyaml = ">=5.1"
+toml = "*"
+virtualenv = ">=20.0.8"
+
+[[package]]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
-name = "pytest"
-version = "5.4.3"
-description = "pytest: simple powerful testing with Python"
-category = "dev"
+name = "pyparsing"
+version = "3.1.2"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6.8"
+
+[package.extras]
+diagrams = ["railroad-diagrams", "jinja2"]
+
+[[package]]
+name = "pytest"
+version = "6.2.5"
+description = "pytest: simple powerful testing with Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [package.dependencies]
 atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
-attrs = ">=17.4.0"
+attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
-more-itertools = ">=4.0.0"
+iniconfig = "*"
 packaging = "*"
-pluggy = ">=0.12,<1.0"
-py = ">=1.5.0"
-wcwidth = "*"
+pluggy = ">=0.12,<2.0"
+py = ">=1.8.2"
+toml = "*"
 
 [package.extras]
-checkqa-mypy = ["mypy (==v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
@@ -362,6 +518,14 @@ description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "requests"
@@ -393,6 +557,29 @@ python-versions = "*"
 six = ">=1.7.0"
 
 [[package]]
+name = "ruamel.yaml"
+version = "0.17.21"
+description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
+category = "main"
+optional = false
+python-versions = ">=3"
+
+[package.dependencies]
+"ruamel.yaml.clib" = {version = ">=0.2.6", markers = "platform_python_implementation == \"CPython\" and python_version < \"3.11\""}
+
+[package.extras]
+docs = ["ryd"]
+jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
+
+[[package]]
+name = "ruamel.yaml.clib"
+version = "0.2.8"
+description = "C version of reader, parser and emitter for ruamel.yaml derived from libyaml"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -410,6 +597,22 @@ python-versions = ">=3.7"
 
 [package.extras]
 doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[[package]]
+name = "termcolor"
+version = "1.1.0"
+description = "ANSII Color formatting for output in terminal."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "typing-extensions"
@@ -442,10 +645,27 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
-name = "wcwidth"
-version = "0.2.13"
-description = "Measures the displayed width of unicode strings in a terminal"
-category = "dev"
+name = "virtualenv"
+version = "20.25.1"
+description = "Virtual Python Environment builder"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+distlib = ">=0.3.7,<1"
+filelock = ">=3.12.2,<4"
+platformdirs = ">=3.9.1,<5"
+
+[package.extras]
+docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx-argparse (>=0.4)", "sphinx (>=7.1.2)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=23.6)"]
+test = ["covdefaults (>=2.3)", "coverage-enable-subprocess (>=1)", "coverage (>=7.2.7)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8)", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "pytest (>=7.4)", "setuptools (>=68)", "time-machine (>=2.10)"]
+
+[[package]]
+name = "visdcc"
+version = "0.0.50"
+description = "visdcc"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -464,6 +684,25 @@ MarkupSafe = ">=2.1.1"
 watchdog = ["watchdog (>=2.3)"]
 
 [[package]]
+name = "yarg"
+version = "0.1.9"
+description = "A semi hard Cornish cheese, also queries PyPI (PyPI client)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
+name = "yolk3k"
+version = "0.9"
+description = "Command-line tool for querying PyPI and Python packages installed on your system."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "zipp"
 version = "3.18.1"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -478,46 +717,67 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "b4ccde503d9d66f341774a462d2114e72f3c03f5507b21e31f933301a69edd26"
+content-hash = "a5a853a1f48b3c703159456085304e87b6b11f1664e28cdec502651faf3e253b"
 
 [metadata.files]
 atomicwrites = []
 attrs = []
 blinker = []
 certifi = []
+cfgv = []
 charset-normalizer = []
 click = []
 colorama = []
 dash = []
+dash-bootstrap-components = []
 dash-core-components = []
 dash-html-components = []
+dash-iconify = []
 dash-mantine-components = []
 dash-table = []
+dash-tools = []
+distlib = []
+docopt = []
+filelock = []
 flask = []
 gunicorn = []
+identify = []
 idna = []
 importlib-metadata = []
+iniconfig = []
 itsdangerous = []
 jinja2 = []
 markupsafe = []
-more-itertools = []
 nest-asyncio = []
+nodeenv = []
 numpy = []
 packaging = []
 pandas = []
+pipreqs = []
+platformdirs = []
 plotly = []
 pluggy = []
+pre-commit = []
 py = []
+pyparsing = []
 pytest = []
 python-dateutil = []
 pytz = []
+pyyaml = []
 requests = []
 retrying = []
+"ruamel.yaml" = []
+"ruamel.yaml.clib" = []
 six = []
 tenacity = []
+termcolor = []
+toml = []
 typing-extensions = []
 tzdata = []
 urllib3 = []
-wcwidth = []
+virtualenv = []
+visdcc = []
 werkzeug = []
+yarg = []
+yolk3k = []
 zipp = []
