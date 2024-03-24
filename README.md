@@ -4,6 +4,13 @@ Majority App is a web application built using Dash, a Python framework for build
 
 ![Majority App landing page](page.png)
 
+## Author
+
+I'm Barbara Calderon, a software developer from Brazil. 
+- [Github](https://www.github.com/barbaracalderon)
+- [Linkedin](https://www.linkedin.com/in/barbaracalderondev)
+- [Twitter](https://www.x.com/bederoni)
+
 ## Features
 
 - **Tab Navigation**: Navigate between different tabs to explore information about the application, bills, and legislators.
@@ -17,7 +24,7 @@ Majority App is a web application built using Dash, a Python framework for build
 
 ![Majority App legislators tab](legislators.png)
 
-## Installation
+## Run Locally
 
 To run the Majority App locally, follow these steps:
 
