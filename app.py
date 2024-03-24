@@ -234,6 +234,15 @@ def render_content(tab):
             ]
         )
 
+@callback(Output("bill-sponsor", "children"), Input("bill-dropdown", "value"))
+def show_sponsor(value):
+    bill_filtered_data = bill_data[bill_data["title"] == value]
+    primary_sponsor = ""
+    if not bill_filtered_data.empty:
+        primary_sponsors = bill_filtered_data["primary sponsor"]
+        if not primary_sponsors.isnull().all():
+            primary_sponsor = primary_sponsors.dropna().iloc[0]
+    return f"Primary sponsor: {primary_sponsor}"
 
 @callback(Output("bill-table", "data"), Input("bill-dropdown", "value"))
 def update_table(value):
